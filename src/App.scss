@@ -1,0 +1,11 @@
+.grid-container {
+  display: grid;
+  column-gap: 15px;
+  row-gap: 15px;
+  grid-template-columns: auto auto auto;
+  
+}
+.container{
+  justify-content: center;
+  display: flex;
+}
