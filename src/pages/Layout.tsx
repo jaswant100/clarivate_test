@@ -19,7 +19,7 @@ export const Layout = () => {
                     </Nav>
                 </Container>
             </Navbar>
-            <Container><Outlet /></Container>
+            <Container fluid="lg"><Outlet /></Container>
         </Fragment>
     )
 }

@@ -1,11 +1,11 @@
 import { Fragment } from "react/jsx-runtime"
 import Cards from "./../components/Card"
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { UserContext } from "./../CreateContext"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 export const Home = () => {
-      const { data, setData,favdata,setFavdata } = useContext(UserContext)
+    const { data, favdata, setFavdata } = useContext(UserContext)
     const favorite = (id: any) => {
         let index = data.findIndex((x: any) => x.id === id);
         data[index].fav = !data[index].fav
@@ -15,7 +15,7 @@ export const Home = () => {
     }
     return (
         <Fragment>
-            <Row><Col>Favorates</Col></Row>
+            <Row><Col lg="1">Favorates</Col></Row>
             <Row><div className="grid-container">
                 {favdata && favdata.map((l1: any, i: number) => {
                     return (
