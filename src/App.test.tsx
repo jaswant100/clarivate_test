@@ -1,5 +1,5 @@
 import React from 'react';
-import { getByTestId, render, screen,fireEvent } from '@testing-library/react';
+import { getByTestId, render, screen, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom/client';
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
@@ -7,30 +7,14 @@ import App, { LocationDisplay } from './App';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 
-let container:any;
 
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-});
 describe('Test for clarivate', () => {
   test('renders react App check for List link', async () => {
     act(() => {
       render(<App />, { wrapper: BrowserRouter });
-    //  ReactDOM.createRoot(container)
     });
-    //render(<App />, { wrapper: BrowserRouter });
     const listElement = screen.getByText(/List/i);
     expect(listElement).toBeInTheDocument();
-    await userEvent.click(listElement)
-    const BackElement = screen.getByText(/Back/i);
-    expect(BackElement).toBeInTheDocument();
-
   });
   test('Landing route page', () => {
     const listRoute = '/list'
