@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route,useLocation } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { List } from "./pages/List";
@@ -9,6 +9,11 @@ import { UserContext } from "./CreateContext"
 import  {fetchData} from "./api"
 import { usePrevious } from './previous';
 
+export const LocationDisplay = () => {
+  const location = useLocation()
+
+  return (<div data-testid="location-display">{location.pathname}</div>)
+}
 function App() {
   const [data, setData] = useState<any[] | null>([])
   const [favdata, setFavdata] = useState(null)
@@ -32,7 +37,6 @@ function App() {
     }).catch((error) => setError(error)).finally(()=>setIsLoading(false))
   }, [page,usePrevData])
   return (
-    <BrowserRouter>
       <UserContext.Provider value={values}>
         <Routes>
           <Route path="/" Component={Layout}>
@@ -42,7 +46,6 @@ function App() {
           </Route>
         </Routes>
       </UserContext.Provider>
-    </BrowserRouter>
   );
 }
 

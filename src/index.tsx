@@ -5,14 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 /* The following line can be included in a src/App.scss */
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
